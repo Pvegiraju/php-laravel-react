@@ -35,9 +35,6 @@ class AuthController extends Controller
     }
 
     public function login(Request $request) {
-        Log::info('Database connection:', ['name' => DB::connection()->getName()]);
-        Log::info('Database configuration:', DB::connection()->getConfig());
-
         $request->validate([
             'email' => 'required|email',
             'password' => 'required'
@@ -52,6 +49,7 @@ class AuthController extends Controller
             ];
         }
 
+        Log::info('$request->name: ' . $user);
         $token = $user->createToken($user->name);
 
         return [
