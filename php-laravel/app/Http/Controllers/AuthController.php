@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
+
 
 class AuthController extends Controller
 {
@@ -33,6 +35,9 @@ class AuthController extends Controller
     }
 
     public function login(Request $request) {
+        Log::info('Database connection:', ['name' => DB::connection()->getName()]);
+        Log::info('Database configuration:', DB::connection()->getConfig());
+
         $request->validate([
             'email' => 'required|email',
             'password' => 'required'
