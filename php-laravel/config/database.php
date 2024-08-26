@@ -37,7 +37,7 @@ return [
 
         'mongodb' => [
             'driver'   => 'mongodb',
-            'dsn'     => 'mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000',
+            'dsn'     => 'mongodb://54.186.20.69:27017/?directConnection=true&serverSelectionTimeoutMS=2000',
             // 'port'     => env('DB_PORT', 27017),
             'database' => 'php-laravel',
             // 'username' => 'php-laravel',
