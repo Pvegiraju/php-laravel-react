@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "php-laravel"
+    },
+    {
+      "path": "react-client"
+    }
+  ],
+  "settings": {
+    "files.autoSave": "afterDelay",
+    "editor.formatOnSave": true
+  }
+}
