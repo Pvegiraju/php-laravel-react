@@ -10,23 +10,25 @@ export default function Layout() {
     async function handleLogout(e: FormEvent<HTMLFormElement>): Promise<void> {
         e.preventDefault();
 
-        const res = await fetch('/api/logout', {
-            method: 'post',
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
+        try {
+            const res = await fetch('/api/logout', {
+                method: 'post',
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
 
-        const data = await res.json();
-        console.log(data);
+            const data = await res.json();
+            console.log(data);
+        } catch (error) {
+            console.log('Error: ', error);
+        }
 
-        // if (res.ok) {
         setUser(null);
         setToken(null);
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         navigate('/');
-        // }
     }
 
     return (
